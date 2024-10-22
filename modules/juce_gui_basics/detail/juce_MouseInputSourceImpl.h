@@ -292,7 +292,8 @@ public:
         {
             cancelPendingUpdate();
 
-            lastPointerState = newPointerState;
+            if (newPointerState.position != MouseInputSource::offscreenMousePos)
+                lastPointerState = newPointerState;
 
             if (auto* current = getComponentUnderMouse())
             {
